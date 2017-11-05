@@ -8,23 +8,23 @@ class Node {
 		color = -1;
 		adjList=new ArrayList<Node>();
 	}
-public int getNodeName() {
+public int getNodeName() {       //gets the name of this node
 		return this.name;
 	}
 	
-	public int getColor() {
+	public int getColor() {   //gets the color of this node 
 		return this.color;
 	}
 	
 	
-	public void setColor(int color) {
+	public void setColor(int color) {     //sets the color of this node
 		this.color=color;
 	}
 public String toString() {
 		return Integer.toString(name)+" "+"color="+color;
 	}
 	
-	public ArrayList<Node> getAdjList() {
+	public ArrayList<Node> getAdjList() {    //return a set of vertices.
 		return this.adjList;
 	}
 }
