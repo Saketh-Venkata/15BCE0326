@@ -20,6 +20,11 @@ public void main(String[] args) throws NumberFormatException, IOException {
 		graphColSeq.printAndGetNoOfColors(graph);
 	System.out.println(end-start+" msec");
 	}
+private void printAndGetNoOfColors(Graph graph) {
+		vertexSet=graph.getVertexSet();
+		int max=0, color;
+		for(int i=0;i<vertexSet.size();i++) {
+			color=vertexSet.get(i).getColor();
 
 
 
