@@ -5,7 +5,7 @@ class Node {
 	
 	Node(int name) {
 		this.name = name;
-		color=-1;
+		color = -1;
 		adjList=new ArrayList<Node>();
 	}
 public int getNodeName() {
