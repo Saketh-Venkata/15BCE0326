@@ -8,7 +8,7 @@ class Node {
 		color = -1;
 		adjList=new ArrayList<Node>();
 	}
-public int getNodeName() {       //gets the name of this node
+public int getNodeName() {       //gets the id of this node
 		return this.name;
 	}
 	
@@ -24,7 +24,7 @@ public String toString() {
 		return Integer.toString(name)+" "+"color="+color;
 	}
 	
-	public ArrayList<Node> getAdjList() {    //return a set of vertices.
+	public ArrayList<Node> getAdjList() {    //return a set adjacent vertices of this node.
 		return this.adjList;
 	}
 }
