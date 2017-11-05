@@ -20,3 +20,11 @@ public int getNodeName() {
 	public void setColor(int color) {
 		this.color=color;
 	}
+public String toString() {
+		return Integer.toString(name)+" "+"color="+color;
+	}
+	
+	public ArrayList<Node> getAdjList() {
+		return this.adjList;
+	}
+}
