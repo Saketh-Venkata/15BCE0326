@@ -25,6 +25,11 @@ private void printAndGetNoOfColors(Graph graph) {
 		int max=0, color;
 		for(int i=0;i<vertexSet.size();i++) {
 			color=vertexSet.get(i).getColor();
+System.out.println("Vertex:"+vertexSet.get(i).getNodeName()+
+					",color:"+color);
+			if(color>max)
+				max=color;
+		}
 
 
 
