@@ -18,5 +18,8 @@ public void main(String[] args) throws NumberFormatException, IOException {
 		graphColSeq.colorVertices(graph);
 	Long end=System.currentTimeMillis();
 		graphColSeq.printAndGetNoOfColors(graph);
+	System.out.println(end-start+" msec");
+	}
+
 
 
