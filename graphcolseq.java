@@ -14,6 +14,5 @@ public void main(String[] args) throws NumberFormatException, IOException {
 		}
 	GraphColSeq graphColSeq=new GraphColSeq();
 		Graph graph=graphColSeq.readInput(args[0]);
-		Long start=System.currentTimeMillis();
-		graphColSeq.colorVertices(graph);
+		
 
