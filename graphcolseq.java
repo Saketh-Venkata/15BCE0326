@@ -32,6 +32,10 @@ System.out.println("Vertex:"+vertexSet.get(i).getNodeName()+
 		}
 	System.out.println("Total number of colors required:"+(max+1));
 	}
+	private Graph readInput(String fileName) throws IOException {
+		int currVertex1, currVertex2;
+		BufferedReader br=new BufferedReader(new FileReader(fileName));
+
 
 
 
