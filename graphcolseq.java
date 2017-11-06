@@ -30,6 +30,9 @@ System.out.println("Vertex:"+vertexSet.get(i).getNodeName()+
 			if(color>max)
 				max=color;
 		}
+	System.out.println("Total number of colors required:"+(max+1));
+	}
+
 
 
 
