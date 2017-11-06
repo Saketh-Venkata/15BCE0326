@@ -40,6 +40,14 @@ System.out.println("Vertex:"+vertexSet.get(i).getNodeName()+
 		Graph graph=new Graph();
 		while((line=br.readLine()) != null) {
             String[] vertex=line.split(" "); 
+			currVertex1=Integer.parseInt(vertex[0]);
+            currVertex2=Integer.parseInt(vertex[1]);
+			graph.addVertex(currVertex1,currVertex2);
+			graph.addVertex(currVertex2,currVertex1);
+		 }
+		return graph;
+	}
+
 
 
 
