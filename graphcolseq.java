@@ -35,6 +35,12 @@ System.out.println("Vertex:"+vertexSet.get(i).getNodeName()+
 	private Graph readInput(String fileName) throws IOException {
 		int currVertex1, currVertex2;
 		BufferedReader br=new BufferedReader(new FileReader(fileName));
+		FileReader(fileName));
+		String line;
+		Graph graph=new Graph();
+		while((line=br.readLine()) != null) {
+            String[] vertex=line.split(" "); 
+
 
 
 
