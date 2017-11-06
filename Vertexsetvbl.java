@@ -12,7 +12,9 @@ public class VertexSetVbl implements Vbl {
 	}
   
   
-  
+  public void set(Vbl vbl) {
+		this.vertexSetTemp = ((VertexSetVbl)vbl).vertexSetTemp;
+	}
   
   
   
