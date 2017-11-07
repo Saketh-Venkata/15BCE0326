@@ -47,6 +47,17 @@ System.out.println("Vertex:"+vertexSet.get(i).getNodeName()+
 		 }
 		return graph;
 	}
+	private void colorVertices(Graph graph) {
+		vertexSet=graph.getVertexSet();
+		noOfVertices=vertexSet.size();
+		Node node;
+		ArrayList<Node> adjList;
+		ArrayList<Integer> adjColorList=new ArrayList<Integer>();
+		for(int i=0;i<vertexSet.size();i++) {
+			node=vertexSet.get(i);
+			adjList=node.getAdjList();
+			for(Node adjNode:adjList) 
+
 
 
 
