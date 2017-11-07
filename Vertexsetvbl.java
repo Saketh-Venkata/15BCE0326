@@ -16,7 +16,13 @@ public class VertexSetVbl implements Vbl {
 		this.vertexSetTemp = ((VertexSetVbl)vbl).vertexSetTemp;
 	}
   
-  
+  public Object clone()
+	{
+		return new VertexSetVbl();
+	}
+	public void add(int nodeName, Node node) {
+		this.vertexSetTemp.put(node.getNodeName(), node);
+	}
   
   
   
