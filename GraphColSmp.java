@@ -41,3 +41,18 @@ private void printAndGetNoOfColors(Graph graph) {
 		}
 		System.out.println("Total number of colors required:"+(max+1));
 	}
+	private void colorVertices(Graph graph) {
+		vertexSet=graph.getVertexSet();
+		//supersteps=1;
+		while(vertexSet.size()!=0) {
+			noOfVertices=vertexSet.size();
+			if(noOfVertices==1) 
+				noOfCores=1;
+			else
+				if(noOfVertices<=noOfCores)
+					noOfCores=noOfVertices-1;
+			noOfVerticesByProcessors=(int) Math.round((double)noOfVertices/noOfCores);
+			if(!flag) {
+				list=new ArrayList<Integer>(vertexSet.keySet());
+				//System.out.println("List is "+list);
+			}
