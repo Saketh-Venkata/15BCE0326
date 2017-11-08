@@ -99,4 +99,47 @@ parallelFor(0,noOfCores-1).exec (new Loop()	{
 					}
 				}	
 	        });
+			vertexSetVbl=new VertexSetVbl();
+			parallelFor (0,noOfCores-1).exec (new Loop()	{
+				VertexSetVbl thrVertexSetVbl;
+				VertexSetVbl candidate;
+				Integer start, end;
+				public void start() {
+					start=new Integer(noOfVerticesByProcessors*rank());
+					end=new Integer(noOfVerticesByProcessors*rank()+noOfVerticesByProcessors);
+					if(end>noOfVertices) {
+						end=new Integer(noOfVertices);
+					}
+					thrVertexSetVbl=threadLocal(vertexSetVbl);
+					candidate=new VertexSetVbl();
+				}
+				@Override
+				public void run(int arg0) throws Exception {
+					Node node;
+					ArrayList<Node> adjList;
+					for (int i=start;i<end;i++) {
+						if(flag) {
+							node=vertexSet.get(i);								
+						}
+						else {
+							node=vertexSet.get(list.get(i));
+						}
+						adjList=node.getAdjList();
+						for(Node adjNode:adjList) {
+							if(adjNode.getNodeName()>end-1&&adjNode.getColor()==node.getColor()) {
+								candidate.add(node.getNodeName(), node);
+								thrVertexSetVbl.reduce(candidate);
+							}
+						}
+						/*if boundary vertex and same color and if not added to set, add it*/
+					}
+				}
+	        });
+			if(flag)
+				flag=false;
+			vertexSet=vertexSetVbl.vertexSetTemp;
+		}
 		
+	}
+	
+						
