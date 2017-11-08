@@ -17,3 +17,15 @@ public class GraphColSmp extends Task {
 	VertexSetVbl vertexSetVbl;
 	boolean flag=true;
 	List<Integer> list = null;
+public void main(String[] args) throws NumberFormatException, IOException {
+		if (args.length != 1) {
+			usage();
+		}
+		GraphColSmp graphColSeq=new GraphColSmp();
+		Graph graph=graphColSeq.readInput(args[0],Math.max(cores(), 1));
+		Long start=System.currentTimeMillis();
+		graphColSeq.colorVertices(graph);
+		Long end=System.currentTimeMillis();
+		graphColSeq.printAndGetNoOfColors(graph);
+		System.out.println("Time taken:"+(end-start)+" msec");
+	}
