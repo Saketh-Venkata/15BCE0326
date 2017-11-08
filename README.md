@@ -1,6 +1,8 @@
 # 15BCE0326
 # 15BCE0343
 # 15BCE0671
+Download the pj2 library here: https://www.cs.rit.edu/~ark/pj2.shtml#download
+pj2 library is an external library for java which helps in running parallel programs using java 
 
 Compile all the files in the 'Code' directory using ‘javac *.java’.
 
