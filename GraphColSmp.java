@@ -56,3 +56,47 @@ private void printAndGetNoOfColors(Graph graph) {
 				list=new ArrayList<Integer>(vertexSet.keySet());
 				//System.out.println("List is "+list);
 			}
+parallelFor(0,noOfCores-1).exec (new Loop()	{
+				int start, end;
+				public void start() {
+					start=new Integer(noOfVerticesByProcessors*rank());
+					end=new Integer(noOfVerticesByProcessors*rank()+noOfVerticesByProcessors);
+					if(end>noOfVertices) {
+						end=new Integer(noOfVertices);
+					}						
+					if(rank()==noOfCores-1&&noOfVertices-end>0) {
+						end=noOfVertices;
+					}
+				}
+				
+				@Override
+				public void run(int arg0) throws Exception {
+					boolean finished=false;
+					Node node;
+					ArrayList<Node> adjList;
+					ArrayList<Integer> adjColorList=new ArrayList<Integer>();
+					for(int i=start;i<end;i++) {
+							if(i==end) {
+								finished=true;
+								break;
+							} else {
+								if(flag)
+									node=vertexSet.get(i);
+								else {
+								node=vertexSet.get(list.get(i));
+								}
+								adjList=node.getAdjList();
+								for(Node adjNode:adjList) {
+									adjColorList.add(adjNode.getColor());
+								}
+								int possibleColor=0;
+								while(adjColorList.contains(possibleColor)) {
+									++possibleColor;
+								}
+								node.setColor(possibleColor);
+								adjColorList.clear();
+							}
+					}
+				}	
+	        });
+		
