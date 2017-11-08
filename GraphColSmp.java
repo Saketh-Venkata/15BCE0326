@@ -141,5 +141,25 @@ parallelFor(0,noOfCores-1).exec (new Loop()	{
 		}
 		
 	}
+	private Graph readInput(String fileName, int cores) throws IOException {
+		this.noOfCores=initialNoOfCores=cores;
+		int currVertex1, currVertex2;
+		BufferedReader br=new BufferedReader(new FileReader(fileName));
+		String line;
+		Graph graph=new Graph();
+		while((line=br.readLine()) != null) {
+            String[] vertex=line.split(" "); 
+            currVertex1=Integer.parseInt(vertex[0]);
+            currVertex2=Integer.parseInt(vertex[1]);
+			graph.addVertex(currVertex1,currVertex2);
+			graph.addVertex(currVertex2,currVertex1);
+		 }
+		return graph;
+	}
 	
+	private static void usage() {
+		System.err.println("Usage: java pj2 GraphColSeq <fileName>");
+		throw new IllegalArgumentException();
+	}
+}
 						
