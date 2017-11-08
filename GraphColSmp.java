@@ -29,3 +29,15 @@ public void main(String[] args) throws NumberFormatException, IOException {
 		graphColSeq.printAndGetNoOfColors(graph);
 		System.out.println("Time taken:"+(end-start)+" msec");
 	}
+private void printAndGetNoOfColors(Graph graph) {
+		vertexSet=graph.getVertexSet();
+		int max=0, color;
+		for(int i=0;i<vertexSet.size();i++) {
+			color=vertexSet.get(i).getColor();
+			System.out.println("Vertex:"+vertexSet.get(i).getNodeName()+
+					",color:"+color);
+			if(color>max)
+				max=color;
+		}
+		System.out.println("Total number of colors required:"+(max+1));
+	}
