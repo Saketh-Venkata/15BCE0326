@@ -57,6 +57,28 @@ System.out.println("Vertex:"+vertexSet.get(i).getNodeName()+
 			node=vertexSet.get(i);
 			adjList=node.getAdjList();
 			for(Node adjNode:adjList) 
+adjColorList.add(adjNode.getColor());
+			}
+			int possibleColor=0;
+			while(adjColorList.contains(possibleColor)) {
+				++possibleColor;
+			}
+			node.setColor(possibleColor);
+			adjColorList.clear();
+		}
+	}
+	
+	
+	private void usage() {
+		System.err.println("Usage: java pj2 GraphColSeq <fileName>");
+		throw new IllegalArgumentException();
+	}
+	
+   
+   protected static int coresRequired() {
+      return 1;
+   }
+}
 
 
 
